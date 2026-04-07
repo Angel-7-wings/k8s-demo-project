@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mask1
+  labels:
+    app: mask1
+
+spec:
+  replicas: 10
+
+  selector:
+    matchLabels:
+      app: mask1
+
+  template:
+    metadata:
+      labels:
+        app: mask1
+    spec:
+      containers:
+        - name: httpd
+          image: httpd:alpine3.18
+          command: ["/bin/bash", "-c"] 
+          args: ["sleep 5; exit 1"]  
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
