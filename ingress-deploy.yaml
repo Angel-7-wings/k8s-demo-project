@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: ingress
+  name: ingress
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ingress
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: ingress
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        resources: {}
+status: {}
