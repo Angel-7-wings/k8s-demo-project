@@ -1,0 +1,30 @@
+
+
+name: billings
+  
+app: billings
+
+containers:
+  image: nginx
+  name: nginx
+ 
+resources:
+   requests:
+     cpu: "170m"
+     memory: "250Mi"
+
+   limits:
+     cpu: "300m"
+     memory: "500Mi"
+
+
+
+service:
+
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP 
+      targetPort: 80
+
+
